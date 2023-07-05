@@ -1,0 +1,21 @@
+
+mat-card {
+  width: 90%;
+  height: 90%;
+  padding: 10px;
+}
+
+mat-card-title {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+mat-card-content {
+  margin-left: -15px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

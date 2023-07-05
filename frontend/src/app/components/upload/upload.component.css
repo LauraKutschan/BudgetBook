@@ -1,0 +1,31 @@
+.wrapper {
+  margin: 40px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.explanation-styling {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  line-height: 25px;
+}
+
+button {
+  width: 100%;
+  background-color: green;
+  color: white !important;
+  font-weight: bold;
+}

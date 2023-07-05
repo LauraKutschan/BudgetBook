@@ -1,0 +1,141 @@
+header {
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  font-size: 30px;
+  color: darkgreen;
+  position: -webkit-sticky; /* for browser compatibility */
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  border-bottom: solid 0.5px lightgray;
+  font-weight: bold;
+}
+
+.title {
+  padding-top: 15px;
+}
+
+.menu {
+  position: -webkit-sticky; /* for browser compatibility */
+  position: sticky;
+  top: 55px;
+}
+
+.item {
+  background-color: violet;
+  width: 40px;
+  height: 100px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  cursor: pointer;
+  margin-left:-8px;
+}
+
+.item:hover {
+  width: 45px;
+  height: 105px;
+  font-size: 20px;
+}
+
+.item-text {
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+
+
+
+.nav {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  padding: 10px 10px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.8);
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 10px 15px;
+  transition: all 0.2s ease-out;
+}
+
+.nav-text {
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.material-icons {
+  cursor: pointer;
+  display: inline;
+  font-size: 25px;
+  transition: color .3s;
+}
+
+.nav-item.active {
+  flex-grow: 3;
+  border-radius: 30px;
+  background: #eee;
+  justify-content: flex-start;
+}
+
+.nav-item.active > .nav-text {
+  display: inline-block;
+}
+
+.nav-item.active > .material-icons.home-icon {
+  color: darkgreen;
+}
+
+.material-icons.home-icon ~ .nav-text {
+  color: darkgreen;
+}
+
+.nav-item.active > .material-icons.favorite-icon {
+  color: darkgreen;
+}
+
+.material-icons.favorite-icon ~ .nav-text {
+  color: darkgreen;
+}
+
+.nav-item.active > .material-icons.search-icon {
+  color: darkgreen;
+}
+
+.material-icons.search-icon ~ .nav-text {
+  color: darkgreen;
+}
+
+.nav-item.active > .material-icons.person-icon {
+  color: darkgreen;
+}
+
+.material-icons.person-icon ~ .nav-text {
+  color: darkgreen;
+}

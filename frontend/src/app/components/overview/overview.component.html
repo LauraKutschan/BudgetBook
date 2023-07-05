@@ -1,0 +1,34 @@
+<header>
+  <p class="title">WarnDog Pro</p>
+</header>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<div class="nav">
+  <div class="nav-item active" (click)="navigate()" [routerLink]="'/'">
+    <i class="material-icons home-icon">
+      report_problem
+    </i>
+    <span class="nav-text">Meldungen</span>
+  </div>
+  <div class="nav-item" (click)="navigate()" [routerLink]="'/map'">
+    <i class="material-icons favorite-icon">
+      place
+    </i>
+    <span class="nav-text">Karte</span>
+  </div>
+  <div class="nav-item" (click)="navigate()" [routerLink]="'/upload'">
+    <i class="material-icons search-icon">
+      add_circle
+    </i>
+    <span class="nav-text">Melden</span>
+  </div>
+  <div class="nav-item" (click)="navigate()" [routerLink]="'/profile'">
+    <i class="material-icons person-icon">
+      person
+    </i>
+    <span class="nav-text">Profil</span>
+  </div>
+</div>
