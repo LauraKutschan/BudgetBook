@@ -124,36 +124,11 @@ export class UploadComponent {
       navigator.geolocation.getCurrentPosition(position => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        this.getAddress(lat, lng).then(r => );
       });
     }else {
       console.log("User not allow")
 
     }
-  }
-
-  getAddress(lat: number, lng: number): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.http
-        .get<any>(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${environment.googleMapsApiKey}`
-        )
-        .pipe(
-          map((geoData) => {
-            if (!geoData || !geoData.results || geoData.results.length === 0)
-              throw null;
-            return geoData.results[0];
-          })
-        )
-        .subscribe(
-          (data) => {
-            resolve(data);
-          },
-          (e) => {
-            reject(e);
-          }
-        );
-    });
   }
 
 }
