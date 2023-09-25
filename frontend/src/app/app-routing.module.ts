@@ -5,6 +5,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {MapComponent} from "./components/map/map.component";
 import {UploadComponent} from "./components/upload/upload.component";
 import {ReportsComponent} from "./components/reports/reports.component";
+import {ReportDetailComponent} from "./components/reports/report-detail/report-detail.component";
 
 const routes: Routes = [
   {
@@ -22,7 +23,11 @@ const routes: Routes = [
   {
     path: 'upload',
     component: UploadComponent
-  }];
+  },
+  {
+    path: ':id',
+    component: ReportDetailComponent
+  },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

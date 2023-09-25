@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Mache ein Foto</h1>
+<div mat-dialog-content>
+
+  <div>
+   <div>
+     <webcam
+       [height]="200"
+       [width]="260"
+       [trigger]="invokeObservable"
+       (imageCapture)="captureImg($event)"
+       class="cam-display"
+     ></webcam>
+   </div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button cdkFocusInitial (click)="getSnapshot()">Foto aufnehmen</button>
+</div>
+
+<!--//[mat-dialog-close]="data.animal"-->

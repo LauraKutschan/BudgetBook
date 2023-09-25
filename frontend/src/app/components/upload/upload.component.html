@@ -2,9 +2,9 @@
 <div class="wrapper">
   <mat-form-field>
     <mat-label>Art der Gefahr</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let topic of topics" [value]="topic.value">
-        {{topic.value}}
+    <mat-select [(ngModel)]="type">
+      <mat-option *ngFor="let type of types" [value]="type.value">
+        {{type.value}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -13,23 +13,45 @@
   <p>
     <mat-form-field>
       <mat-label>Datum der Sichtung</mat-label>
-      <input matInput [matDatepicker]="dp3" disabled>
-      <mat-hint>TT.MM.JJJJ</mat-hint>
+      <input [max]="today" [(ngModel)]="date" matInput [matDatepicker]="dp3" disabled>
       <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
       <mat-datepicker #dp3 disabled="false"></mat-datepicker>
     </mat-form-field>
   </p>
 
+  <p>
+    <mat-form-field>
+      <mat-label>Ort der Sichtung</mat-label>
+      <input [(ngModel)]="location" matInput>
+    </mat-form-field>
+  </p>
+
+  <button mat-button (click)="getLocation()">loc</button>
+
+  <p>Your location: {{lat}} , {{lng}}</p>
+
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Beschreibung</mat-label>
-      <textarea matInput placeholder="Als ich im Wald spazieren ging..."></textarea>
+      <textarea [(ngModel)]="desc" [ngModelOptions]="{standalone: true}" matInput placeholder="Als ich im Wald spazieren ging..."></textarea>
     </mat-form-field>
   </form>
 
   <p class="explanation-styling">Lade maximal 3 Fotos hoch, um anderen zu helfen, die Gefahr zu erkennen.</p>
 
   <button mat-button>
+    <mat-icon>upload</mat-icon>
     Bild hochladen
   </button>
-</div>
+
+
+
+  <button mat-button (click)="openDialog()">
+    <mat-icon>camera</mat-icon>
+    Foto machen
+  </button>
+
+  <button class="upload-button" (click)="uploadFile()" mat-button>
+    Veröffentlichen
+  </button>
+  </div>

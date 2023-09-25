@@ -1,0 +1,10 @@
+.wrapper {
+  padding: 20px;
+  margin: auto;
+}
+
+button {
+  background-color: green;
+  color: white !important;
+}
+

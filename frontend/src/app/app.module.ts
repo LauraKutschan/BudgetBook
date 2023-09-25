@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,12 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {HttpClientModule} from "@angular/common/http";
+import {WebcamModule} from "ngx-webcam";
+import { CameraDialogComponent } from './components/camera-dialog/camera-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { ReportDetailComponent } from './components/reports/report-detail/report-detail.component';
 
 
 @NgModule({
@@ -33,6 +39,8 @@ import {FormsModule} from "@angular/forms";
     ReportsComponent,
     UploadComponent,
     MapComponent,
+    CameraDialogComponent,
+    ReportDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,16 @@ import {FormsModule} from "@angular/forms";
     MatSelectModule,
     FormsModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
+    WebcamModule,
+    MatDialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

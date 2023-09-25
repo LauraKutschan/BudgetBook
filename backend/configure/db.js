@@ -1,25 +1,18 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-
 const client = new MongoClient(process.env.DB_CONNECTION);
 
 const dbconnection = client.connect();
 
-console.log(`Connected to DB ... `);
-
-const { MongoClient } = require('mongodb');
-require('dotenv').config();
-
-
-const client = new MongoClient('reports');
-
-const dbconnection = client.connect();
 const database = client.db('WarnDog');
-const collection = database.collection(process.env.COLLECTION);
+const userCollection = database.collection(process.env.USERCOLLECTION);
+const reportsCollection = database.collection(process.env.REPORTSCOLLECTION);
+
 console.log(`Connected to DB ... `);
 
 module.exports.client = client;
 module.exports.dbconnection = dbconnection;
 module.exports.database = database;
-module.exports.collection = collection;
+module.exports.userCollection = userCollection;
+module.exports.reportsCollection = reportsCollection;
