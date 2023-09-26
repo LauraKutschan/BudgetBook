@@ -57,6 +57,7 @@ export class UploadComponent implements OnInit{
   map?: Map;
   markerLayer: any;
   marker!: any;
+  online?: boolean;
 
   constructor (private bs: BackendService,
                private db: DexieService,
@@ -121,6 +122,8 @@ export class UploadComponent implements OnInit{
   }
 
   IDB(isOnline: any): void {
+    console.log('ONLINE??:  ' + isOnline);
+    this.online = isOnline;
     if(isOnline) {
 
     }
@@ -181,10 +184,8 @@ export class UploadComponent implements OnInit{
       this.file = result.file;
       this.filename = result.file.name;
       const reader = new FileReader();
-
-      reader.readAsDataURL(result.file); // read file as data url
-
-      reader.onload = (event: any) => { // called once readAsDataURL is completed
+      reader.readAsDataURL(result.file);
+      reader.onload = (event: any) => {
         this.url = event.target.result;
       }
     });
@@ -199,7 +200,9 @@ export class UploadComponent implements OnInit{
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.reverseGeocode({lat: position.coords.latitude, lon: position.coords.longitude});
-        this.setMarker(position.coords.longitude, position.coords.latitude);
+        if(this.online) {
+          this.setMarker(position.coords.longitude, position.coords.latitude);
+        }
       }, err => {
         console.log(err);
         this.resourcesLoaded = true;

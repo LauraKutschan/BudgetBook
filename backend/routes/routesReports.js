@@ -111,12 +111,19 @@ router.post('/reports/upload', upload.single('file'), (req, res) => {
 })
 
 //download picture
-router.get('/download/:filename', async(req, res) => {
+router.get('/download/:fileId', async(req, res) => {
     try {
-        const filename = req.params.filename;
-        let downloadStream = bucket.openDownloadStreamByName(filename);
-        downloadStream.on("data", (data) => res.status(200).write(data));
-        downloadStream.on("error", (err) => res.status(404).send({ message: filename + " does not exist" }));
+        const fileId = req.params.fileId;
+        console.log('1');
+        let downloadStream = bucket.openDownloadStream(new ObjectId(fileId));
+        console.log('2');
+
+        downloadStream.on("data", (data) => {console.log(data);res.status(200).write(data.toString())});
+        console.log('3');
+
+        downloadStream.on("error", (err) => res.status(404).send({ message: fileId + " does not exist" }));
+        console.log('4');
+
         downloadStream.on("end", () => res.end());
     } catch (error) {
         console.log('error', error);
@@ -146,7 +153,7 @@ function getOneReport(id) {
         try {
             let oid = new ObjectId(id);
             const report = await reportsCollection.findOne({ _id: oid });
-            if(report.file && report.file != '') {
+            /*if(report.file && report.file != '') {
                 let fileId = report.file;
                 const database = client.db('WarnDog');
                 const files = database.collection('posts.files');
@@ -171,12 +178,11 @@ function getOneReport(id) {
                     "lat": report.lat,
                     "lon": report.lon,
                     "file": base64file
-                });
-                console.log('getPost', getPost);
+                });*/
+               /* console.log('getPost', getPost);
                 resolve(getPost);
-            } else {
+            } else {*/
                 resolve(report);
-            }
         } catch(err) {
             reject(new Error("Post does not exist!"));
             console.log(err);

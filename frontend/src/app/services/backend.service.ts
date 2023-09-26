@@ -9,6 +9,7 @@ import {formatDate} from "@angular/common";
   providedIn: 'root'
 })
 export class BackendService {
+  url = 'http://localhost:3000/';
   reportsUrl = 'http://localhost:3000/reports';
   userUrl = 'http://localhost:3000/user';
 
@@ -53,6 +54,18 @@ export class BackendService {
       return this.http.post<string>(this.reportsUrl + '/upload', this.getBodyForUpload(file));
     }
     return new Observable<string>();
+  }
+
+  downloadFile(id: string): Observable<any> {
+    console.log('backendanbindung upload aufgerufen: ' + id);
+
+    var HTTPOptions = {
+      headers: new HttpHeaders({
+        'Accept':'*'
+      }),
+      'responseType': 'arraybuffer' as 'json'
+    }
+    return this.http.get<any>(this.url + 'download/' + id,HTTPOptions);
   }
 
   getBodyForUpload(uploadFile: File): any {
