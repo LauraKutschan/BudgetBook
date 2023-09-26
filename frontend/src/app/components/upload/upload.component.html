@@ -19,14 +19,14 @@
     </mat-form-field>
   </p>
 
-  <p>
-    <mat-form-field>
-      <mat-label>Ort der Sichtung</mat-label>
-      <input [(ngModel)]="location" matInput>
-    </mat-form-field>
-  </p>
+  <button mat-button (click)="getLocation()">Finde mich</button>
 
-  <button mat-button (click)="getLocation()">loc</button>
+  <div class="row">
+    <div (click)="getCoord($event)" id="hotel_map"></div>
+  </div>
+
+  <p style="margin-bottom: 40px; position: relative">Ort der Sichtung: <mat-spinner style="width: 30px; position: absolute; left: 170px; top: -39px" *ngIf="resourcesLoaded === false"></mat-spinner> {{ this.location }}</p>
+
 
   <form class="example-form">
     <mat-form-field class="example-full-width">
@@ -35,14 +35,18 @@
     </mat-form-field>
   </form>
 
-  <p class="explanation-styling">Lade maximal 3 Fotos hoch, um anderen zu helfen, die Gefahr zu erkennen.</p>
-
-  <button mat-button>
-    <mat-icon>upload</mat-icon>
-    Bild hochladen
-  </button>
+  <p class="explanation-styling">Du kannst ein Foto machen und hochladen, um anderen zu helfen, die Gefahr zu erkennen.</p>
 
 
+  <mat-expansion-panel *ngIf="url">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon style="margin-right: 10px">image</mat-icon> Dein Foto
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <img style="margin: auto; width: 100%;" [src]="url">
+    <button mat-button style="background-color: firebrick" (click)="deleteFile()">Löschen</button>
+  </mat-expansion-panel>
 
   <button mat-button (click)="openDialog()">
     <mat-icon>camera</mat-icon>
@@ -52,4 +56,6 @@
   <button class="upload-button" (click)="uploadFile()" mat-button>
     Veröffentlichen
   </button>
-  </div>
+
+  <p style="margin-top: 60px; color: transparent">ll</p>
+</div>

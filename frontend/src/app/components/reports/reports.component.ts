@@ -15,16 +15,20 @@ import { DATE_PIPE_DEFAULT_OPTIONS } from "@angular/common";
     }
   ],
 })
+
 export class ReportsComponent implements OnInit{
   reports!: Report[];
+  resourcesLoaded: boolean = true;
 
   constructor(private bs: BackendService,
               private db: DexieService) {}
 
   ngOnInit(): void {
     this.db.table('reports').clear();
+    this.resourcesLoaded = false;
     this.bs.getAllReports().subscribe(
       (response: Report[]) => {
+        this.resourcesLoaded = true;
         this.reports = response;
         console.log(response[1]);
         console.log(this.reports[0]._id);
@@ -32,11 +36,13 @@ export class ReportsComponent implements OnInit{
           console.log('Report : ' + report);
           // insert into db
           this.db.table('reports')
-            .add({userID: report.userID, type: report.type, date: report.date, location: report.location, desc: report.desc, images: report.file})
+            .add({userID: report.userID, type: report.type, date: report.date, location: report.location, desc: report.desc, lat: report.lat, lon: report.lon, images: report.file})
             .then(data => console.log(data))
             .catch(err => console.log(err));
         });
       },
-      error => console.log(error));
+      error => {console.log(error)
+      this.resourcesLoaded = true;
+      });
   }
 }

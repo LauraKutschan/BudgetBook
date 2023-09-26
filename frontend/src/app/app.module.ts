@@ -29,6 +29,9 @@ import {WebcamModule} from "ngx-webcam";
 import { CameraDialogComponent } from './components/camera-dialog/camera-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ReportDetailComponent } from './components/reports/report-detail/report-detail.component';
+import {GoogleMapsModule} from "@angular/google-maps";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { ReportDetailComponent } from './components/reports/report-detail/report
     HttpClientModule,
     WebcamModule,
     MatDialogModule,
+    GoogleMapsModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

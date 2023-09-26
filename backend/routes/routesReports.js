@@ -27,6 +27,8 @@ router.post('/reports', async (req, res) => {
             date: req.body.date,
             desc: req.body.desc,
             location: req.body.location,
+            lat: req.body.lat,
+            lon: req.body.lon,
             file: req.body.file
         })
         await reportsCollection.insertOne(newReport);
@@ -166,6 +168,8 @@ function getOneReport(id) {
                     "date": report.date,
                     "location": report.location,
                     "desc": report.desc,
+                    "lat": report.lat,
+                    "lon": report.lon,
                     "file": base64file
                 });
                 console.log('getPost', getPost);

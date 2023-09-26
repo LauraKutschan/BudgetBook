@@ -6,6 +6,8 @@ const schema = new mongoose.Schema({
     date: String,
     desc: String,
     location: String,
+    lat: Number,
+    lon: Number,
     file: String
 });
 

@@ -1,3 +1,4 @@
+<mat-spinner *ngIf="resourcesLoaded === false" style="margin: auto"></mat-spinner>
 <mat-grid-list cols="2" >
   <div *ngFor="let i of reports">
     <mat-grid-tile>
@@ -14,3 +15,4 @@
     </mat-grid-tile>
   </div>
 </mat-grid-list>
+

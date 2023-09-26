@@ -17,7 +17,7 @@ import { DATE_PIPE_DEFAULT_OPTIONS } from "@angular/common";
 })
 export class ReportDetailComponent implements OnInit{
 
-  report: Report = {_id: '', type: '', date: '', location: '', userID: '', desc: '', file: ''};
+  report: Report = {_id: '', type: '', date: '', location: '', userID: '', desc: '', lat: 0, lon: 0, file: ''};
 
   constructor (private bs: BackendService,
                private route: ActivatedRoute) {}

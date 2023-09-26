@@ -5,5 +5,7 @@ export interface Report {
   date: string,
   desc: string,
   location: string,
+  lat: number,
+  lon: number,
   file: string
 }
