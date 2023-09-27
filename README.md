@@ -14,7 +14,7 @@ Im frontend-Ordner:
       <br>
 ## 3. Backend starten <br>
 Im backend-Ordner:
-   - npm install
+   - npm install <br>
    - npm run watch
    <br>
    <br>
