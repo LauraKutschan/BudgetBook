@@ -16,8 +16,8 @@ Im frontend-Ordner:
 Im backend-Ordner:
    - npm install <br>
    - npm run watch
-   <br>
-   <br>
+     <br>
+     <br>
 ## 4. Building the Project and starting http-Server <br>
    - ng build im frontend-Ordner
    - frontend/dist/frontend --> http-server -p 8081
