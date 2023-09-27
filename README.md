@@ -29,7 +29,7 @@ Du findest beim Spaziergang mit deinem Hund einen Giftköder oder siehst einen a
 Melde es mit WarnDog Pro, um andere Menschen zu warnen und ihnen zu helfen.
    <br>
    <br>
-# 5.1 Meldungen <br>
+## 5.1 Meldungen <br>
 Der Startscreen ist die Übersicht aller verfassten Meldungen. 
 Du siehst das Datum, den Ort und die Beschreibung der Meldung auf einen Blick.
    <br>
@@ -37,14 +37,14 @@ Du siehst das Datum, den Ort und die Beschreibung der Meldung auf einen Blick.
    ![bild](./frontend/src/assets/images/meldungen.png)
    <br>
    <br>
-# 5.2 Karte <br>
+## 5.2 Karte <br>
 Die Karte soll später die Möglichkeit geben, alle gemeldeten Dinge auf einen Blick anzuzeigen.
    <br>
    <br>
    ![bild](./frontend/src/assets/images/karte.png)
    <br>
    <br>
-# 5.3 Melden <br>
+## 5.3 Melden <br>
 Hier kannst du selbst eine meldung verfassen. 
 Um den Ort festzulegen, kannst du entweder deine eigene Position ermitteln oder frei wählbar auf der Karte einen Marker setzen.
    <br>
@@ -58,7 +58,7 @@ Lade ein Foto von deiner Sichtung hoch, um anderen die Gefahr besser erkennbar z
    ![bild](./frontend/src/assets/images/melden2.png)
    <br>
    <br>
-# 5.4 Profil <br>
+## 5.4 Profil <br>
 Das Profil soll später dazu dienen, dass du deine eigenen Meldungen angezeigt bekommst und bearbeiten kannst. 
 Außerdam kannst du hier bald deine eigenen Daten überprüfen und bearbeiten.
    <br>
